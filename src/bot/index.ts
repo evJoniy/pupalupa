@@ -22,7 +22,7 @@ let text =
 
 bot.command('add', async (ctx: any) => {
   if (JSON.parse('[' + process.env.ADMIN_IDS + ']').includes(ctx.from.id)) {
-    console.log(Object.keys(ctx.message.chat));
+    console.log(ctx.telegram.message_id);
     // ctx.telegram.deleteMessage(ctx.chat.id, ctx.message.id);
     ctx.telegram.sendMessage(ctx.chat.id, text, { parse_mode: 'html' });
   } else {
