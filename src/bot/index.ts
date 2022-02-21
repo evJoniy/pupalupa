@@ -16,13 +16,13 @@ let text =
   '\n' +
   '<b>Пример правильного предложения: t.me/wordsru/9760</b>>\n' +
   '\n' +
-  '<b>Сразу отказываем в добавлении:</b>>\n' +
+  '<b>Сразу отказываем в добавлении:</b>\n' +
   '<b>- Предложение содержит имя</b> (Петя - лох)   <em>Зачем тысячам людей стикер с оскорблением вашего друга?</em>\n' +
   '- Уже имеется аналогичный стикер, несущий тот же смысл';
 
 bot.command('add', async (ctx: any) => {
-  console.log(ctx);
-  ctx.telegram.sendMessage(ctx.chat.id, text);
+  console.log(ctx.id);
+  ctx.telegram.sendMessage(ctx.chat.id, text, { parse_mode: 'html' });
 });
 
 bot.launch();
