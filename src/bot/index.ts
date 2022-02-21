@@ -8,7 +8,7 @@ export const bot = new Telegraf(process.env.BOT_TOKEN);
 
 let count = 6;
 
-console.log('in index.ts');
+console.log(bot);
 
 bot.start(async (ctx) => {
   await ctx.reply('Set members count with /set <number>');
