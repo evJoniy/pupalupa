@@ -30,3 +30,7 @@ bot.command('add', async (ctx: any) => {
 });
 
 bot.launch();
+
+bot.catch((err) => {
+  bot.launch();
+});
