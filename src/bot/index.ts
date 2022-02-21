@@ -1,9 +1,10 @@
 import { Telegraf } from 'telegraf';
-
-import * as dotenv from 'dotenv';
-dotenv.config();
+// import * as dotenv from 'dotenv';
+import { Telegram } from 'telegraf/src/telegram';
+// dotenv.config();
 
 export const bot = new Telegraf(process.env.BOT_TOKEN);
+const tg = new Telegram(process.env.BOT_TOKEN);
 
 let text =
   '<b>Как предложить слова для стикера</b>\n\n' +
@@ -23,7 +24,7 @@ let text =
 bot.command('add', async (ctx: any) => {
   if (JSON.parse('[' + process.env.ADMIN_IDS + ']').includes(ctx.from.id)) {
     try {
-      ctx.telegram.deleteMessage(ctx.chat.id, ctx.message.message_id);
+      await tg.deleteMessage(ctx.chat.id, ctx.message.message_id);
     } catch (e) {
       console.log(e);
     }
