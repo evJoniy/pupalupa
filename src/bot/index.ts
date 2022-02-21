@@ -23,6 +23,8 @@ let text =
 bot.command('add', async (ctx: any) => {
   if (JSON.parse('[' + process.env.ADMIN_IDS + ']').includes(ctx.from.id)) {
     ctx.telegram.sendMessage(ctx.chat.id, text, { parse_mode: 'html' });
+  } else {
+    console.log('403');
   }
 });
 
