@@ -21,15 +21,17 @@ let text =
 
 bot.command('add', async (ctx: any) => {
   if (JSON.parse('[' + process.env.ADMIN_IDS + ']').includes(ctx.from.id)) {
+    // message not found
     // try {
     //   ctx.telegram.deleteMessage(ctx.chat.id, ctx.message.message_id);
     // } catch (e) {
     //   console.log(e);
     // }
-    console.log(ctx.message);
     ctx.telegram.sendMessage(ctx.chat.id, text, { parse_mode: 'html' });
   } else {
-    console.log('403, tried by' + ctx.message);
+    console.log(
+      '403, tried by' + ctx.message.from.id + ' ' + ctx.message.from.username,
+    );
   }
 });
 
