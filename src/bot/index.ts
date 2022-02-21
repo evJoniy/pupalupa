@@ -21,7 +21,7 @@ let text =
   '- Уже имеется аналогичный стикер, несущий тот же смысл';
 
 bot.command('add', async (ctx: any) => {
-  console.log(ctx.msg.from.id);
+  console.log(ctx.from.id);
   ctx.telegram.sendMessage(ctx.chat.id, text, { parse_mode: 'html' });
 });
 
