@@ -24,3 +24,5 @@ bot.command('pay', async (ctx: any) => {
       ' local tugriks',
   );
 });
+
+bot.launch();
